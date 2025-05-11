@@ -37,7 +37,7 @@ integrations:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
       # about setting up the GitHub integration here: https://backstage.io/docs/integrations/github/locations#configuration
-      token: ${GITHUB_TOKEN}
+      token: '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'
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -81,6 +81,17 @@ catalog:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
       target: ../../examples/entities.yaml
+    - type: file
+      target: ../../examples/entities1.yaml
+    - type: file
+      target: ../../examples/entities2.yaml
+    - type: file
+      target: ../../examples/entities3.yaml
+    - type: file
+      target: ../../examples/entities4.yaml
+    - type: file
+      target: ../../examples/entities5.yaml
+
 
     # Local example template
     - type: file
@@ -114,3 +125,19 @@ kubernetes:
 permission:
   # setting this to `false` will disable permissions
   enabled: true
+
+# ... other config
+
+linguist:
+  schedule:
+    frequency:
+      minutes: 2
+    timeout:
+      minutes: 2
+    initialDelay:
+      seconds: 15
+  age:
+    days: 30
+  batchSize: 2
+  useSourceLocation: false
+# ... other config

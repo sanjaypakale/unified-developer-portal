@@ -34,7 +34,7 @@ import {
   EntityOwnershipCard,
 } from '@backstage/plugin-org';
 import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
-import { EmptyState } from '@backstage/core-components';
+import { EmptyState, InfoCard } from '@backstage/core-components';
 import {
   Direction,
   EntityCatalogGraphCard,
@@ -57,6 +57,14 @@ import {
   EntityKubernetesContent,
   isKubernetesAvailable,
 } from '@backstage/plugin-kubernetes';
+
+import {
+  EntityFeedbackResponseContent,
+  EntityLikeDislikeRatingsCard,
+  LikeDislikeButtons,
+} from '@backstage-community/plugin-entity-feedback';
+import { EntityTeamPullRequestsCard, EntityTeamPullRequestsContent } from '@backstage-community/plugin-github-pull-requests-board';
+import { isLinguistAvailable, EntityLinguistCard } from '@backstage-community/plugin-linguist';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -140,6 +148,18 @@ const overviewContent = (
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
+    <Grid item md={2}>
+      <InfoCard title="Rate this entity">
+        <LikeDislikeButtons />
+      </InfoCard>
+    </Grid>
+    <EntitySwitch>
+         <EntitySwitch.Case if={isLinguistAvailable}>
+             <Grid item md={6}>
+                 <EntityLinguistCard />
+             </Grid>
+         </EntitySwitch.Case>
+     </EntitySwitch>
   </Grid>
 );
 
@@ -152,6 +172,10 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
     </EntityLayout.Route>
+    <EntityLayout.Route path="/pull-requests" title="Pull Requests">
+      <EntityTeamPullRequestsContent />
+    </EntityLayout.Route>
+
 
     <EntityLayout.Route
       path="/kubernetes"
@@ -159,6 +183,10 @@ const serviceEntityPage = (
       if={isKubernetesAvailable}
     >
       <EntityKubernetesContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/feedback" title="Feedback">
+      <EntityFeedbackResponseContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">
@@ -197,6 +225,10 @@ const websiteEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/feedback" title="Feedback">
+      <EntityFeedbackResponseContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route
@@ -303,6 +335,9 @@ const userPage = (
         <Grid item xs={12} md={6}>
           <EntityOwnershipCard variant="gridItem" />
         </Grid>
+        <Grid item xs={12}>
+          <EntityLikeDislikeRatingsCard />
+        </Grid>
       </Grid>
     </EntityLayout.Route>
   </EntityLayout>
@@ -325,6 +360,8 @@ const groupPage = (
         <Grid item xs={12} md={6}>
           <EntityLinksCard />
         </Grid>
+        <Grid item xs={12}>
+          <EntityLikeDislikeRatingsCard />       </Grid>
       </Grid>
     </EntityLayout.Route>
   </EntityLayout>

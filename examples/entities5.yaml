@@ -11,12 +11,12 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: example-website
+  name: development-hybrid
 spec:
   type: website
   lifecycle: experimental
   owner: guests
-  system: erm
+  system: dvx
   providesApis: [example-grpc-api]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api

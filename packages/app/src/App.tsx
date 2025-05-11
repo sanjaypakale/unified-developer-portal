@@ -35,6 +35,8 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
+import { DefaultFilters } from '@backstage/plugin-catalog-react';
+import { DvxCatalogPage } from './components/catalog/DvxCatalogPage';
 
 const app = createApp({
   apis,
@@ -58,12 +60,14 @@ const app = createApp({
   components: {
     SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
   },
+  plugins: [],
 });
 
 const routes = (
   <FlatRoutes>
     <Route path="/" element={<Navigate to="catalog" />} />
-    <Route path="/catalog" element={<CatalogIndexPage />} />
+    <Route path="/catalog" element={<DvxCatalogPage />} />
+    <Route path="/catalog-unfiltered" element={<CatalogIndexPage  />} />
     <Route
       path="/catalog/:namespace/:kind/:name"
       element={<CatalogEntityPage />}
