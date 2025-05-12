@@ -8,3 +8,8 @@ metadata:
 spec:
   owner: guests
   domain: GBT
+  dependsOn:
+    - system:default/dvx
+  # relations:
+  #   - type: partOf
+  #     targetRef: system:default/dvx

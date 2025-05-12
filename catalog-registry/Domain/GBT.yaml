@@ -4,5 +4,5 @@ metadata:
   name: GBT
   description: Everything about GBT
 spec:
-  owner: artist-relations-team
-  subdomainOf: audio-domain
+  owner: user:uncsth
+  

@@ -6,5 +6,5 @@ metadata:
   name: ddp
   description: DDP system
 spec:
-  owner: guests
+  owner: user:unvns1
   domain: GBT

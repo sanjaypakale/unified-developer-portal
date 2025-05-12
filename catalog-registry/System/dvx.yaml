@@ -6,5 +6,5 @@ metadata:
   name: dvx
   description: Dvx system
 spec:
-  owner: guests
+  owner: user:tmp3vd
   domain: GBT

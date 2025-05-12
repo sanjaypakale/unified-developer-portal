@@ -15,8 +15,8 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: developerportal
-  system: dvx
+  owner: group:ddp/developerportal
+  system: ddp
   providesApis: [example-grpc-api]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api

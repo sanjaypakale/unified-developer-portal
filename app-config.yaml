@@ -165,8 +165,8 @@ catalog:
         baseUrl: http://localhost:8080/auth
         loginRealm: master
         realm: master
-        clientId: backstage-catalog-client
-        clientSecret: IHzYGMDdVzH3jyZ2TuLAnRv2yX8CMnm3
+        clientId: backstage-client
+        clientSecret: 5wCjt0JsUVxIA5c2iql6IMwtTOyK7Dzg
         schedule: # Optional (defaults to the configurations below if not provided); same options as in TaskScheduleDefinition
           # supports cron, ISO duration, "human duration" as used in code
           frequency: { minutes: 2 } # Customize this to fit your needs
