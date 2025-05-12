@@ -113,32 +113,38 @@ catalog:
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
-      target: ../../examples/entities.yaml
+      target: ../../catalog-registry/Component/entities.yaml
     - type: file
-      target: ../../examples/entities1.yaml
+      target: ../../catalog-registry/Component/entities1.yaml
     - type: file
-      target: ../../examples/entities2.yaml
+      target: ../../catalog-registry/Component/entities2.yaml
     - type: file
-      target: ../../examples/entities3.yaml
+      target: ../../catalog-registry/Component/entities3.yaml
     - type: file
-      target: ../../examples/entities4.yaml
+      target: ../../catalog-registry/Component/entities4.yaml
     - type: file
-      target: ../../examples/entities5.yaml
+      target: ../../catalog-registry/Component/entities5.yaml
     - type: file
-      target: ../../examples/dvx.yaml
+      target: ../../catalog-registry/System/dvx.yaml
     - type: file
-      target: ../../examples/ddp.yaml
+      target: ../../catalog-registry/System/ddp.yaml
     - type: file
-      target: ../../examples/dsh.yaml
+      target: ../../catalog-registry/System/dsh.yaml
 
     - type: file
-      target: ../../examples/GBT.yaml
+      target: ../../catalog-registry/Domain/GBT.yaml
     - type: file
-      target: ../../examples/GIPS.yaml
+      target: ../../catalog-registry/Domain/GIPS.yaml
     - type: file
-      target: ../../examples/GIS.yaml
+      target: ../../catalog-registry/Domain/GIS.yaml
     - type: file
-      target: ../../examples/GMET.yaml
+      target: ../../catalog-registry/Domain/GMET.yaml
+    - type: file
+      target: ../../catalog-registry/Group/infrastructure.yaml
+    - type: file
+      target: ../../catalog-registry/Resource/artist-db.yaml
+    - type: file
+      target: ../../catalog-registry/API/artist-api.yaml
 
 
     # Local example template
