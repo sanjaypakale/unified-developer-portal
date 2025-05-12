@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: GBT
+  description: Everything about GBT
+spec:
+  owner: artist-relations-team
+  subdomainOf: audio-domain

@@ -15,7 +15,7 @@ metadata:
 spec:
   type: website
   lifecycle: experimental
-  owner: guests
+  owner: developerportal
   system: erm
   providesApis: [example-grpc-api]
 ---

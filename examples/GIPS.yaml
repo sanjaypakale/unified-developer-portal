@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: GIPS
+  description: Everything about GIPS
+spec:
+  owner: artist-relations-team
+  subdomainOf: audio-domain

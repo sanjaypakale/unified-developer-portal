@@ -62,48 +62,10 @@ techdocs:
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
-auth:
-  # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers:
-    # See https://backstage.io/docs/auth/guest/provider
-    guest: {}
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
-catalog:
-  import:
-    entityFilename: catalog-info.yaml
-    pullRequestBranchName: backstage-integration
-  rules:
-    - allow: [Component, System, API, Resource, Location]
-  locations:
-    # Local example data, file locations are relative to the backend process, typically `packages/backend`
-    - type: file
-      target: ../../examples/entities.yaml
-    - type: file
-      target: ../../examples/entities1.yaml
-    - type: file
-      target: ../../examples/entities2.yaml
-    - type: file
-      target: ../../examples/entities3.yaml
-    - type: file
-      target: ../../examples/entities4.yaml
-    - type: file
-      target: ../../examples/entities5.yaml
-
-
-    # Local example template
-    - type: file
-      target: ../../examples/template/template.yaml
-      rules:
-        - allow: [Template]
-
-    # Local example organizational data
-    - type: file
-      target: ../../examples/org.yaml
-      rules:
-        - allow: [User, Group]
 
     ## Uncomment these lines to add more example data
     # - type: url
@@ -141,3 +103,81 @@ linguist:
   batchSize: 2
   useSourceLocation: false
 # ... other config
+
+catalog:
+  import:
+    entityFilename: catalog-info.yaml
+    pullRequestBranchName: backstage-integration
+  rules:
+    - allow: [Component, System, API, Resource, Location, Group, Users, Domain, Template]
+  locations:
+    # Local example data, file locations are relative to the backend process, typically `packages/backend`
+    - type: file
+      target: ../../examples/entities.yaml
+    - type: file
+      target: ../../examples/entities1.yaml
+    - type: file
+      target: ../../examples/entities2.yaml
+    - type: file
+      target: ../../examples/entities3.yaml
+    - type: file
+      target: ../../examples/entities4.yaml
+    - type: file
+      target: ../../examples/entities5.yaml
+    - type: file
+      target: ../../examples/dvx.yaml
+    - type: file
+      target: ../../examples/ddp.yaml
+    - type: file
+      target: ../../examples/dsh.yaml
+
+    - type: file
+      target: ../../examples/GBT.yaml
+    - type: file
+      target: ../../examples/GIPS.yaml
+    - type: file
+      target: ../../examples/GIS.yaml
+    - type: file
+      target: ../../examples/GMET.yaml
+
+
+    # Local example template
+    - type: file
+      target: ../../examples/template/template.yaml
+      rules:
+        - allow: [Template]
+
+    # Local example organizational data
+    - type: file
+      target: ../../examples/org.yaml
+      rules:
+        - allow: [User, Group]
+
+  providers:
+    keycloakOrg:
+      default:
+        baseUrl: http://localhost:8080/auth
+        loginRealm: master
+        realm: master
+        clientId: backstage-catalog-client
+        clientSecret: IHzYGMDdVzH3jyZ2TuLAnRv2yX8CMnm3
+        schedule: # Optional (defaults to the configurations below if not provided); same options as in TaskScheduleDefinition
+          # supports cron, ISO duration, "human duration" as used in code
+          frequency: { minutes: 2 } # Customize this to fit your needs
+          # supports ISO duration, "human duration" as used in code
+          timeout: { minutes: 3 } # Customize this to fit your needs
+
+
+auth:
+  environment: development
+  session:
+    secret: 5wCjt0JsUVxIA5c2iql6IMwtTOyK7Dzg
+  providers:
+    guest: {}
+    keycloak:
+      development:
+        metadataUrl: http://localhost:8080/auth/realms/master/.well-known/openid-configuration
+        clientId: backstage-client
+        clientSecret: 5wCjt0JsUVxIA5c2iql6IMwtTOyK7Dzg
+        prompt: auto
+        

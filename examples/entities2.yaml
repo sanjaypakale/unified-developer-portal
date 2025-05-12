@@ -15,7 +15,7 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: guests
+  owner: developerportal
   system: dvx
   providesApis: [example-grpc-api]
 ---

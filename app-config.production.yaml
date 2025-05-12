@@ -29,8 +29,17 @@ backend:
       #     $file: <file-path>/ca/server.crt
 
 auth:
+  environment: development
+  session:
+    secret: 5wCjt0JsUVxIA5c2iql6IMwtTOyK7Dzg
   providers:
     guest: {}
+    keycloak:
+      development:
+        metadataUrl: http://localhost:8080/auth/realms/master/.well-known/openid-configuration
+        clientId: backstage-client
+        clientSecret: 5wCjt0JsUVxIA5c2iql6IMwtTOyK7Dzg
+        prompt: auto
 
 catalog:
   # Overrides the default list locations from app-config.yaml as these contain example data.
